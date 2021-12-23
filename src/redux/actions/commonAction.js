@@ -1,8 +1,8 @@
-// import { commonActionTypes } from "../actionTypes";
+import { commonActionTypes } from "../actionTypes";
 
-// export const showSidebarAction = (flag) => {
-//     return {
-//         type: commonActionTypes.SHOW_SIDEBAR,
-//         payload: flag,
-//     };
-// };
+export const showInvalidLink = (flag) => {
+    return {
+        type: commonActionTypes.INVALID_LINK,
+        payload: flag,
+    };
+};

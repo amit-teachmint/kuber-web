@@ -1,0 +1,390 @@
+@font-face {
+    font-family: "LatoRegular";
+    src: local("LatoRegular"), url(./Lato-Regular.ttf) format("truetype");
+}
+
+.payment-main {
+    height: 100%;
+    width: 100%;
+    font-family: LatoRegular !important;
+    .py-nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: sticky;
+        top: 0px;
+    }
+    .py-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .py-success-box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .py-success {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            color: #5db082;
+        }
+    }
+    .py-paybox {
+        background-color: #f7f9fc;
+        border-radius: 24px;
+        .py-paybox-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #e5ecf6;
+            border-radius: 24px 24px 0px 0px;
+            .py-paybox-det {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .insti-name {
+                    color: #1f3965;
+                }
+                .teacher-name {
+                    color: #6b82ab;
+                }
+            }
+            .py-call-btn {
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                background-color: rgba(29, 161, 242, 0.1);
+                cursor: pointer;
+            }
+        }
+        .py-paybox-pay-cont {
+            .py-paybox-pay {
+                background-color: #ffffff;
+                .py-amount {
+                    color: #1f3965;
+                    font-weight: 400;
+                    font-size: 36px;
+                    margin-top: 0.5rem;
+                }
+                .py-processing-box {
+                    color: #ea8804;
+                }
+                .py-secure {
+                    display: flex;
+
+                    align-items: center;
+                }
+            }
+        }
+    }
+    .py-cntct-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border-radius: 24px;
+    }
+    .py-btm-bar {
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 10040px) {
+    .payment-main {
+        height: 100vh;
+    }
+    .py-nav {
+        background-color: #dbe2ea;
+        height: 8%;
+        box-shadow: none;
+        img {
+            padding-left: 11px;
+            width: 12rem;
+        }
+    }
+    .py-body {
+        height: 74%;
+    }
+    .py-success-box {
+        .py-success {
+            height: 170px;
+            font-size: 30px;
+        }
+    }
+    .py-paybox {
+        background-color: #f7f9fc;
+        width: 45rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        .py-paybox-nav {
+            height: 25%;
+            width: 100%;
+            .py-paybox-det {
+                padding-top: 0.95rem;
+                padding-left: 1rem;
+                .insti-name {
+                    font-size: 1.2em;
+                    color: #1f3965;
+                    padding-bottom: 0.95rem;
+                }
+                .teacher-name {
+                    font-size: 1em;
+                    color: #6b82ab;
+                    padding-bottom: 0.95rem;
+                }
+            }
+            .py-call-btn {
+                margin-right: 1rem;
+                padding: 0.5rem;
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+        .py-paybox-pay-cont {
+            height: 75%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .py-paybox-pay {
+                width: 55%;
+                padding: 1em 3em;
+                margin: 1em 0em;
+                text-align: center;
+                border-radius: 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .py-amount {
+                    margin-bottom: 1rem;
+                }
+                .py-processing-box {
+                    font-size: 28px;
+                    margin-bottom: 10px;
+                }
+                .py-secure {
+                    justify-content: center;
+                    margin-bottom: 0.5em;
+                }
+                .py-pay-btn {
+                    box-shadow: 0px 3px 12px 0px #cfebfc;
+                    padding: 8px 10px;
+                }
+            }
+        }
+    }
+    .py-cntct-box {
+        background-color: #f7f9fc;
+        width: 492px;
+        display: flex;
+        padding: 1% 4%;
+        text-align: center;
+        margin-bottom: 2rem;
+        .py-cntct-title {
+            color: #1f3965;
+            font-size: 20px;
+            width: 92%;
+            line-height: 24px;
+            padding: 1rem 0rem;
+            font-weight: 600;
+        }
+        .py-cntct-numb {
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .py-call-numb {
+                color: #6b82ab;
+                margin-bottom: 0.75rem;
+                img {
+                    height: 1rem;
+                }
+                .py-call-opt {
+                    display: none;
+                }
+            }
+        }
+    }
+    .py-btm-bar {
+        height: 18%;
+        width: 100%;
+        padding-top: 0.5rem;
+        top: 82%;
+        background-color: #f7f9fc;
+        img {
+            height: 100%;
+            margin: 0% 2%;
+        }
+        .py-btm-dwl {
+            width: 83%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 2rem;
+            .py-install-txt {
+                br {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    .payment-main {
+        height: 100%;
+    }
+    .py-nav {
+        height: 10%;
+        background-color: #ffffff;
+        box-shadow: 0px 5px 5px rgba(31, 57, 101, 0.04);
+        img {
+            padding-left: 11px;
+            width: 12rem;
+        }
+    }
+    .py-body {
+        position: absolute;
+        top: 10%;
+        height: 72%;
+        width: 100%;
+        background-color: #f7f9fc;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-bottom: 1rem;
+    }
+    .py-success-box {
+        .py-success {
+            height: 150px;
+            font-size: 24px;
+        }
+    }
+    .py-paybox {
+        background-color: #f7f9fc;
+        width: 90%;
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        .py-paybox-nav {
+            padding: 0.5rem;
+            width: 100%;
+            .py-paybox-det {
+                padding: 0rem 0.65rem;
+                font-size: 0.96rem;
+                .insti-name {
+                    color: #1f3965;
+                    padding-bottom: 5px;
+                }
+                .teacher-name {
+                    color: #6b82ab;
+                    padding-bottom: 5px;
+                }
+            }
+            .py-call-btn {
+                margin-right: 1rem;
+                padding: 0.5rem;
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+        .py-paybox-pay-cont {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+
+            .py-paybox-pay {
+                border-radius: 0px 0px 24px 24px;
+                width: 100%;
+                padding: 1rem;
+                padding-top: 1rem;
+                margin-top: 0rem;
+                margin-bottom: 0.75rem;
+                text-align: left;
+                .py-amount {
+                    margin-bottom: 1rem;
+                }
+                .py-processing-box {
+                    font-size: 24px;
+                    margin-top: 0rem;
+                }
+                .py-secure {
+                    justify-content: flex-start;
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+    .py-cntct-box {
+        background-color: #f7f9fc;
+        width: 90%;
+        margin: 0% 10%;
+        display: flex;
+        padding: 0% 4%;
+        text-align: left;
+        .py-cntct-title {
+            color: #1f3965;
+            font-size: 14px;
+            width: 92%;
+            line-height: 16.8px;
+            font-weight: 600;
+        }
+        .py-cntct-numb {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .py-call-numb {
+                color: #6b82ab;
+                margin-bottom: 0.75rem;
+                font-size: 0.8rem;
+                display: flex;
+                align-items: center;
+                padding: 0px;
+                img {
+                    height: 1rem;
+                }
+                .py-call-opt {
+                    display: flex;
+                    margin-left: 0.75rem;
+                    color: #1da1f2;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .py-btm-bar {
+        height: 18%;
+        width: 100%;
+        padding-top: 0.5rem;
+        top: 82%;
+        background-color: #ffffff;
+        img {
+            width: 35%;
+        }
+        .py-btm-dwl {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+    }
+}

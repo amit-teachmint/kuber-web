@@ -1,4 +1,8 @@
-import {combineReducers} from 'redux'
-const rootReducer = combineReducers({})
+import { combineReducers } from "redux";
+import { showInvalidLinkReducer } from "./commonReducers";
 
-export default rootReducer
+const rootReducer = combineReducers({
+    showInvalidLink: showInvalidLinkReducer,
+});
+
+export default rootReducer;

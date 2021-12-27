@@ -1,8 +1,16 @@
 import { combineReducers } from "redux";
-import { showInvalidLinkReducer } from "./commonReducers";
+import { showErrorReducer } from "./commonReducers";
+import {
+    setOrderInfo,
+    setPaymentInfo,
+    setPGOrderInfo,
+} from "./paymentReducers";
 
 const rootReducer = combineReducers({
-    showInvalidLink: showInvalidLinkReducer,
+    showError: showErrorReducer,
+    orderInfo: setOrderInfo,
+    pgOrderInfo: setPGOrderInfo,
+    paymentInfo: setPaymentInfo,
 });
 
 export default rootReducer;

@@ -1,8 +1,11 @@
 import { commonActionTypes } from "../actionTypes";
 
-export const showInvalidLinkReducer = (state = false, { type, payload }) => {
+export const showErrorReducer = (
+    state = { showError: false, msg: "", ERROR_CODE: "" },
+    { type, payload }
+) => {
     switch (type) {
-        case commonActionTypes.INVALID_LINK:
+        case commonActionTypes.SHOW_ERROR:
             return payload;
         default:
             return state;

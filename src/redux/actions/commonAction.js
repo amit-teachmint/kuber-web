@@ -1,8 +1,15 @@
 import { commonActionTypes } from "../actionTypes";
 
-export const showInvalidLink = (flag) => {
+export const showErrorAction = (flag) => {
     return {
-        type: commonActionTypes.INVALID_LINK,
+        type: commonActionTypes.SHOW_ERROR,
         payload: flag,
     };
 };
+
+// export const setErrorObjectAction = (flag) => {
+//     return {
+//         type: commonActionTypes.SET_ERROR_OBJECT,
+//         payload: flag,
+//     };
+// };

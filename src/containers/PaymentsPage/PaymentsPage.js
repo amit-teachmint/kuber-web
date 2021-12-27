@@ -9,19 +9,26 @@ import { useParams } from "react-router";
 import InvalidLinkPage from "./InvalidLinkPage";
 import PaymentSuccess from "./PaymentSuccess";
 import { useEffect } from "react";
+import { utilsFetchOrder, utilsInitiatePayment } from "../../routes/requests";
+import useScript from "../CustomHooks/useScript";
 export default function PaymentsPage() {
+    useScript("https://checkout.razorpay.com/v1/checkout.js");
     const [userData, setUserData] = useState(null);
-    const [paymentInfo, setPaymentInfo] = useState(null);
     const [status, setStatus] = useState("NOT_INTI");
-    const [linkInvalid, setLinkInvalid] = useState(false);
     const [showLoading, setShowLoading] = useState(false);
 
-    const { showInvalidLink } = useSelector((state) => state);
+    const { showError, orderInfo } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     const { order_id: orderId } = useParams();
 
-    useEffect(() => {}, []);
+    const initiatePayment = (e) => {
+        dispatch(utilsInitiatePayment(e, orderId));
+    };
+
+    useEffect(() => {
+        dispatch(utilsFetchOrder(orderId));
+    }, []);
 
     return (
         <>
@@ -30,9 +37,9 @@ export default function PaymentsPage() {
                 <div className="py-nav">
                     <img src={logo} alt="teachmint"></img>
                 </div>
-                {linkInvalid ? (
-                    <InvalidLinkPage />
-                ) : status === "SUCCESS" ? (
+                {showError.showError ? (
+                    <InvalidLinkPage msg={showError.msg} />
+                ) : orderInfo.payment_status === "SUCCESS" ? (
                     <PaymentSuccess />
                 ) : (
                     <div className="py-body">
@@ -69,7 +76,8 @@ export default function PaymentsPage() {
                                         ).format("LL")} */}
                                     </div>
                                     <div className="py-amount">
-                                        &#x20b9; {userData && userData.amount}
+                                        &#x20b9;{" "}
+                                        {orderInfo && orderInfo.balance}
                                     </div>
                                     {status === "PENDING" ? (
                                         <div className="py-processing-box">
@@ -108,12 +116,12 @@ export default function PaymentsPage() {
                                             </div>
                                             <div
                                                 className="tm-btn1-blue py-pay-btn"
-                                                onClick={() => {
-                                                    // getToken();
+                                                onClick={(e) => {
+                                                    initiatePayment(e);
                                                 }}
                                             >
                                                 Pay &#x20b9;
-                                                {userData && userData.amount}
+                                                {orderInfo && orderInfo.balance}
                                             </div>
                                         </>
                                     )}

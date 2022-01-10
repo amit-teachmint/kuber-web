@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - uses: google-github-actions/setup-gcloud@master
+    - uses: google-github-actions/setup-gcloud@v0
       with:
         service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         project_id: ${{ env.PROJECT_ID }}
@@ -38,6 +38,18 @@ jobs:
 
     - name: print gcoud info
       run: gcloud artifacts print-settings npm 
+
+    - name: Scope specify
+      run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/ 
+
+    - name: Artifactry login
+      run: npx google-artifactregistry-auth
+
+    - name: npm publish
+      run: npm publish --tag=upload-test-1
+
+    - name: Gcloud-list
+      run: gcloud artifacts packages list
 
     - name: check
       run: echo "hello peter"

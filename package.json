@@ -78,6 +78,6 @@
     }
   },
  "publishConfig": {
-    "registry": "https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/"
+    "registry": "https://asia-south1-npm.pkg.dev/excellent-math-274709/kuber-npm/"
   }
 }

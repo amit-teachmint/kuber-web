@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: false
-      PROJECT_ID: teachmint-dev
+      PROJECT_ID: excellent-math-274709
       GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-      ARTIFACT_REGISTORY: poc-npm-artifact-registory
+      ARTIFACT_REGISTORY: kuber-npm
       LOCATION: asia-south1
 
     steps:
@@ -43,19 +43,10 @@ jobs:
         run: gcloud config set artifacts/location $LOCATION
 
       - name: Scope specify
-        run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/ 
+        run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/excellent-math-274709/kuber-npm/
 
       - name: Artifactry login
         run: npx google-artifactregistry-auth
 
-      - name: Gcloud-list
-        run: gcloud artifacts packages list
-
       - name: npm publish
         run: npm publish --tag=upload-test-1
-
-      - name: Gcloud-list
-        run: gcloud artifacts packages list
-
-      - name: check
-        run: echo "hello peter"

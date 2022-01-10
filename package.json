@@ -76,8 +76,8 @@
     "hooks": {
       "pre-commit": "lint-staged && pretty-quick --staged"
     }
-  }
+  },
  "publishConfig": {
     "registry": "https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/"
-  },
+  }
 }

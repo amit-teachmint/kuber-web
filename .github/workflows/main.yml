@@ -2,7 +2,7 @@ name: Kuber Web CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:

@@ -8,6 +8,7 @@ jobs:
     name: Build and Push to GCP
     runs-on: ubuntu-latest
     env:
+      CI: false
       PROJECT_ID: teachmint-dev
       GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SERVICE_ACCOUNT_KEY }}
       ARTIFACT_REGISTORY: poc-npm-artifact-registory

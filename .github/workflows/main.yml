@@ -48,7 +48,7 @@ jobs:
       run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/ 
 
     - name: Artifactry login
-      run: npx google-artifactregistry-auth
+      run: npm login --scope=@mycorp --registry=https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/
 
     - name: Gcloud-list
       run: gcloud artifacts packages list

@@ -52,7 +52,7 @@ jobs:
       run: gcloud artifacts packages list
 
     - name: npm publish
-      run: npm publish --tag=upload-test-1 --access restricted
+      run: npm publish --tag=upload-test-1
 
     - name: Gcloud-list
       run: gcloud artifacts packages list

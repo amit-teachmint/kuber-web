@@ -29,7 +29,7 @@ jobs:
         npm run build
 
     - name: setting user profile
-       run: mv user_npmrc /home/runner/work/kuber-web/kuber-web/.npmrc
+      run: mv user_npmrc /home/runner/work/kuber-web/kuber-web/.npmrc
 
     - uses: google-github-actions/setup-gcloud@v0
       with:

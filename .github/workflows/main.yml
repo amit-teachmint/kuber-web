@@ -24,7 +24,9 @@ jobs:
 
     - name: Install dependencies
       run: |
+        echo -e "Running  NPM CI"
         npm ci
+        echo -e "\nRunning NPM RUN BUILD"
         npm run build
 
     - name: setting user profile

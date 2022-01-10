@@ -25,6 +25,9 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: setting user profile
+      run: mv user_npmrc /home/runner/work/kuber-web/kuber-web/.npmrc
+
     - uses: google-github-actions/setup-gcloud@v0
       with:
         service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}

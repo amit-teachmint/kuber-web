@@ -44,14 +44,14 @@ jobs:
     - name: gcloud location setup
       run: gcloud config set artifacts/location $LOCATION
 
-    - name: print gcoud info
-      run: gcloud artifacts print-settings npm 
-
     - name: Scope specify
       run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/ 
 
     - name: Artifactry login
       run: npx google-artifactregistry-auth
+
+    - name: Gcloud-list
+      run: gcloud artifacts packages list
 
     - name: npm publish
       run: npm publish --tag=upload-test-1

@@ -30,9 +30,6 @@ jobs:
         echo -e "\nRunning NPM RUN BUILD"
         npm run build
 
-    - name: setting user profile
-      run: mv user_npmrc /home/runner/work/kuber-web/kuber-web/.npmrc
-
     - uses: google-github-actions/setup-gcloud@v0
       with:
         service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
@@ -48,7 +45,7 @@ jobs:
       run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/ 
 
     - name: Artifactry login
-      run: npm login --scope=@mycorp --registry=https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/
+      run: npx google-artifactregistry-auth user_npmrc
 
     - name: Gcloud-list
       run: gcloud artifacts packages list

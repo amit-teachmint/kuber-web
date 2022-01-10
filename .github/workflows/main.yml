@@ -16,42 +16,42 @@ jobs:
       LOCATION: asia-south1
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
 
-      - name: Install dependencies
-      - run: npm ci  
+    - name: Install dependencies
+    - run: npm ci  
 
-      - uses: google-github-actions/setup-gcloud@master
-        with:
-          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-          project_id: ${{ env.PROJECT_ID }}
-          export_default_credentials: true
+    - uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        project_id: ${{ env.PROJECT_ID }}
+        export_default_credentials: true
 
-      - name: gcloud repo setup
-        run: gcloud config set artifacts/repository $ARTIFACT_REGISTORY
-      - name: gcloud location setup
-        run: gcloud config set artifacts/location $LOCATION
+    - name: gcloud repo setup
+      run: gcloud config set artifacts/repository $ARTIFACT_REGISTORY
+    - name: gcloud location setup
+      run: gcloud config set artifacts/location $LOCATION
 
-      - name: print gcoud info
-        run: gcloud artifacts print-settings npm 
+    - name: print gcoud info
+      run: gcloud artifacts print-settings npm 
 
-      - name: runner env info
-        run: |
-          pwd
-          ls -al
+    - name: runner env info
+      run: |
+        pwd
+        ls -al
 
-      - name: Scope specify
-        run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/ 
+    - name: Scope specify
+      run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/ 
 
-      - name: Artifactry login
-        run: npx google-artifactregistry-auth
+    - name: Artifactry login
+      run: npx google-artifactregistry-auth
 
-      - name: npm publish
-        run: npm publish --tag=upload-test-1
+    - name: npm publish
+      run: npm publish --tag=upload-test-1
 
-      - name: Gcloud-list
-        run: gcloud artifacts packages list
+    - name: Gcloud-list
+      run: gcloud artifacts packages list

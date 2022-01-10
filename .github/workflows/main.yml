@@ -25,10 +25,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        echo -e "Running  NPM CI"
         npm ci
-        echo -e "\nRunning NPM RUN BUILD"
         npm run build
+
+    - name: setting user profile
+       run: mv user_npmrc /home/runner/work/kuber-web/kuber-web/.npmrc
 
     - uses: google-github-actions/setup-gcloud@v0
       with:
@@ -45,7 +46,7 @@ jobs:
       run: npm config set @stage:registry https://asia-south1-npm.pkg.dev/teachmint-dev/poc-npm-artifact-registory/ 
 
     - name: Artifactry login
-      run: npx google-artifactregistry-auth user_npmrc
+      run: npx google-artifactregistry-auth
 
     - name: Gcloud-list
       run: gcloud artifacts packages list

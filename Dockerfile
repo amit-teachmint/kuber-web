@@ -5,4 +5,4 @@ WORKDIR /app
 COPY . .
 
 RUN npm install pm2@latest -g
-CMD ['pm2-runtime', 'start', 'src/App.js','--name kuber']
+CMD ['/bin/sh', 'start.sh']

@@ -12,7 +12,7 @@ jobs:
       IMAGE_NAME: kuber_web
       PROJECT_ID: teachmint-dev
       GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-      ARTIFACT_REGISTORY: pac-docker-artifact-registry
+      ARTIFACTORY: pac-docker-artifact-registry
       LOCATION: asia-south1
 
     steps:

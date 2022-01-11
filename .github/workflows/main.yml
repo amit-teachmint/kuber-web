@@ -2,7 +2,7 @@
 name: Build and Push Website Builder Docker Image to Google Cloud Platform
 on:
   push:
-    branches: [ main ]        
+    branches: [ workflow ]        
 jobs:
   build-push-gcr:
     name: Build and Push to GCP
